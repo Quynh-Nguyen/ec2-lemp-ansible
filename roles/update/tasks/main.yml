@@ -1,0 +1,23 @@
+
+---
+- name: install python2
+  raw: sudo yum -y install python
+
+- name: yum | yum update
+  yum: update_cache=yes cache_valid_time=3600
+  sudo: true
+
+- name: yum | ensure core packages are installed
+  yum: pkg={{ item }} state=installed
+  sudo: true
+  with_items:
+    - curl
+    - git
+    - make
+    - python-software-properties
+    - supervisor
+    - tree
+    - unzip
+
+- name: Upgrade Server
+  yum: upgrade=full
