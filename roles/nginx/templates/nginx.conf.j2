@@ -34,19 +34,21 @@ http {
     # See http://nginx.org/en/docs/ngx_core_module.html#include
     # for more information.
     include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*.conf;
 
-    index   index.html index.htm;
+    index   {{ nginx_index }};
 
     server {
         listen       80 default_server;
         listen       [::]:80 default_server;
         server_name  localhost;
-        root         /usr/share/nginx/html;
+        root         {{ nginx_root }};
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
 
         location / {
+            try_files $uri $uri/ /index.php$is_args$args;
         }
 
         # redirect server error pages to the static page /40x.html
@@ -76,6 +78,13 @@ http {
         #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
         #    include        fastcgi_params;
         #}
+
+        location ~ \.php$ {
+           fastcgi_pass     unix:/var/run/php-fpm/php-fpm.sock;
+           fastcgi_index    index.php;
+           fastcgi_param    SCRIPT_FILENAME $document_root$fastcgi_script_name;
+           include          fastcgi_params;
+        }
 
         # deny access to .htaccess files, if Apache's document root
         # concurs with nginx's one

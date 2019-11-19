@@ -27,35 +27,25 @@
     state: installed
   become: yes
 
-# - name: PHP | FPM php.ini
-#   template:
-#     src=php.ini.j2
-#     dest=/etc/php/7.0/fpm/php.ini
-#     backup=yes
-#     owner=root
-#     group=root
-#     mode=0644
-#   become: yes
+- name: PHP | FPM www.conf
+  template:
+    src=www.conf.j2
+    dest=/etc/php-fpm-7.3.d/www.conf
+    backup=yes
+    owner=root
+    group=root
+    mode=0644
+  become: yes
 
-# - name: PHP | CLI php.ini
-#   template:
-#     src=php.ini.j2
-#     dest=/etc/php/7.0/cli/php.ini
-#     backup=yes
-#     owner=root
-#     group=root
-#     mode=0644
-#   become: yes
-
-# - name: PHP | configure opcache
-#   template:
-#     src=opcache.ini.j2
-#     dest=/etc/php/7.0/mods-available/opcache.ini
-#     backup=yes
-#     owner=root
-#     group=root
-#     mode=0644
-#   become: yes
+- name: PHP | CLI php.ini
+  template:
+    src=php.ini.j2
+    dest=/etc/php.ini
+    backup=yes
+    owner=root
+    group=root
+    mode=0644
+  become: yes
 
 - name: PHP | restart nginx
   raw: service nginx restart
