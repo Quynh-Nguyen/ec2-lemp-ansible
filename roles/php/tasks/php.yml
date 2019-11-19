@@ -17,7 +17,7 @@
         'php73-odbc',
         'php73-pgsql',
         'php73-mbstring',
-        'php73-mysql',
+        'php73-mysqlnd',
         'php73-xmlrpc',
         'php73-opcache',
         'php73-intl',
