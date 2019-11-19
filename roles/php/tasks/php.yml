@@ -40,7 +40,7 @@
 - name: PHP | CLI php.ini
   template:
     src=php.ini.j2
-    dest=/etc/php.ini
+    dest=/etc/php-7.3.ini
     backup=yes
     owner=root
     group=root
