@@ -19,13 +19,11 @@
   become: yes
 
 - name: NGINX | NGINX Check nginx root directory
-  gather_facts: no
   stat:
     path: /var/www/html
   register: nginx_root_directory
 
 - name: NGINX | NGINX Show message if nginx root directory existed
-  gather_facts: no
   debug:
     msg: 'Nginx root directory existed'
   when: nginx_root_directory.stat.exists
