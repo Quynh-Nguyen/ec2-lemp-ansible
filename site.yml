@@ -3,7 +3,7 @@
   hosts: web
   gather_facts: true
   remote_user: ec2-user
-  become: yes
+  become: true
   become_user: root
   become_method: sudo
 
