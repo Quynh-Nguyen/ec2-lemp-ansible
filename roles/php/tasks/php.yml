@@ -4,24 +4,27 @@
   become: yes
 
 - name: PHP | install php packages
-  yum: name={{ item }} state=installed
-  with_items:
-    - php7.3-fpm
-    - php7.3-cli
-    - php7.3-common
-    - php7.3-curl
-    - php7.3-json
-    - php7.3-gd
-    - php7.3-mcrypt
-    - php7.3-odbc
-    - php7.3-pgsql
-    - php7.3-mbstring
-    - php7.3-mysql
-    - php7.3-xmlrpc
-    - php7.3-opcache
-    - php7.3-intl
-    - php7.3-bz2
-    - php7.3-xml
+  yum:
+    name:
+      [
+        'php73-fpm',
+        'php73-cli',
+        'php73-common',
+        'php73-curl',
+        'php73-json',
+        'php73-gd',
+        'php73-mcrypt',
+        'php73-odbc',
+        'php73-pgsql',
+        'php73-mbstring',
+        'php73-mysql',
+        'php73-xmlrpc',
+        'php73-opcache',
+        'php73-intl',
+        'php73-bz2',
+        'php73-xml'
+      ]
+    state: installed
   become: yes
 
 # - name: PHP | FPM php.ini
@@ -59,5 +62,5 @@
   become: yes
 
 - name: PHP | restart fpm
-  raw: service php7.3-fpm restart
+  raw: service php73-fpm restart
   become: yes

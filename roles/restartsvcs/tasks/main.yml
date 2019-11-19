@@ -3,5 +3,5 @@
   service: name=nginx state=restarted
 
 - name: restart php-fpm
-  raw: service php7.3-fpm restart
+  raw: service php73-fpm restart
   become: yes
