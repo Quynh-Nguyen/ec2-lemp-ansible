@@ -20,8 +20,9 @@
 
 - name: NGINX | NGINX Check nginx root directory
   stat:
-    path: {{ nginx_root }}
+    path: "{{ item }}"
   register: nginx_root_directory
+  with_items: "{{ nginx_root }}"
 
 - name: NGINX | NGINX Show message if nginx root directory existed
   debug:
@@ -30,11 +31,12 @@
 
 - name: NGINX | NGINX Create directory if not exists
   file:
-    path: {{ nginx_root }}
+    path: "{{ item }}"
     state: directory
     mode: 0755
-    group: {{ php_fpm_group }}
-    owner: {{ php_fpm_user }}
+    group: nginx
+    owner: nginx
+    with_items: "{{ nginx_root }}"
 
 - name: NGINX | restart nginx
   raw: service nginx restart
