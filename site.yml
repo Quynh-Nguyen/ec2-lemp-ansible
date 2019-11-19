@@ -1,9 +1,8 @@
 ---
 - name: Provision LEMP and related tools
   hosts: web
-  #user: root
+  # user: root
   # remote_user: user
-  sudo: yes
   gather_facts: yes
 
   roles:
