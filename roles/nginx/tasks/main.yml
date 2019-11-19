@@ -22,11 +22,13 @@
   stat:
     path: /var/www/html
   register: nginx_root_directory
+  delegate_facts: True
 
 - name: NGINX | NGINX Show message if nginx root directory existed
   debug:
     msg: 'Nginx root directory existed'
   when: nginx_root_directory.stat.exists
+  delegate_facts: True
 
 - name: NGINX | NGINX Create directory if not exists
   file:
