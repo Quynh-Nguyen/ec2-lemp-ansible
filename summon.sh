@@ -24,6 +24,7 @@ echo "=============================="
 
 sudo easy_install pip
 sudo pip install ansible
+sudo yum install git
 
 echo "========================"
 echo "Clone Ansible Repository"
