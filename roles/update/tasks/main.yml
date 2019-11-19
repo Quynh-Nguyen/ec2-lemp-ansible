@@ -8,13 +8,13 @@
     name: "*"
     state: present
     update_cache: yes
-  sudo: true
+  become: yes
 
 - name: yum | ensure core packages are installed
   yum:
     name: "{{ item }}"
     state: present
-  sudo: true
+  become: yes
   with_items:
     - curl
     - git
@@ -28,3 +28,4 @@
   yum:
     name: "*"
     state: latest
+  become: yes
