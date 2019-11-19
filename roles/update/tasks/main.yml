@@ -13,15 +13,15 @@
 - name: yum | ensure core packages are installed
   yum:
     name:
-    [
-      'curl',
-      'git',
-      'make',
-      'supervisor',
-      'tree',
-      'unzip',
-      'telnet'
-    ]
+      [
+        'curl',
+        'git',
+        'make',
+        'supervisor',
+        'tree',
+        'unzip',
+        'telnet'
+      ]
     state: present
   become: yes
 
