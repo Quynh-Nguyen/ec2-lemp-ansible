@@ -1,2 +1,2 @@
 [web]
-HOST  ansible_connection=ssh ansible_ssh_user=USER ansible_ssh_pass=PASSWORD
+HOST  ansible_connection=local
