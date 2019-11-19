@@ -4,14 +4,16 @@
   raw: sudo yum -y install python
 
 - name: yum | yum update
-  yum: update_cache=yes cache_valid_time=3600
+  yum:
+    update_cache: yes
   sudo: true
 
 - name: yum | ensure core packages are installed
-  yum: pkg={{ item }} state=installed
+  yum:
+    name: "{{ item }}"
+    state: present
   sudo: true
   with_items:
-    - pip
     - curl
     - git
     - make
@@ -21,4 +23,6 @@
     - unzip
 
 - name: Upgrade Server
-  yum: upgrade=full
+  yum:
+    name: "*"
+    state: latest
