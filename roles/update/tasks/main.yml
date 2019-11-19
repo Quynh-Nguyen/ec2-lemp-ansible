@@ -11,6 +11,7 @@
   yum: pkg={{ item }} state=installed
   sudo: true
   with_items:
+    - pip
     - curl
     - git
     - make

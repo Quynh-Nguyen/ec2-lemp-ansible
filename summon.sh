@@ -44,5 +44,5 @@ else
     echo "Ansible Playbook Progress"
     echo "========================="
 
-    ansible-playbook -i ./hosts site.yml --verbose
+    ansible-playbook -i ./hosts ./site.yml --verbose
 fi
