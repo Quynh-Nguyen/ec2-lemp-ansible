@@ -36,11 +36,11 @@ php_date_timezone: UTC
 nginx_index: "index index.php index.html index.html"
 nginx_root: "/var/www/html"
 
-www_user: nginx
-www_group: nginx
-www_listen_owner: nginx
-www_listen_group: nginx
-www_listen_mode: 0660
+php_fpm_user: nginx
+php_fpm_group: nginx
+php_fpm_listen_owner: nginx
+php_fpm_listen_group: nginx
+php_fpm_listen_mode: 0660
 
 # MySQL Settings
 mysql_port: 3306

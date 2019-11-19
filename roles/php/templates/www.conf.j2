@@ -21,9 +21,9 @@
 ; Note: The user is mandatory. If the group is not set, the default user's group
 ;       will be used.
 ; RPM: apache user chosen to provide access to the same directories as httpd
-user = {{ www_user }}
+user = {{ php_fpm_user }}
 ; RPM: Keep a group allowed to write in log dir.
-group = {{ www_group }}
+group = {{ php_fpm_group }}
 
 ; The address on which to accept FastCGI requests.
 ; Valid syntaxes are:
@@ -45,9 +45,9 @@ listen = /var/run/php-fpm/php-fpm.sock
 ; permissions must be set in order to allow connections from a web server.
 ; Default Values: user and group are set as the running user
 ;                 mode is set to 0660
-listen.owner = {{ www_listen_owner }}
-listen.group = {{ www_listen_group }}
-listen.mode = {{ www_listen_mode }}
+listen.owner = {{ php_fpm_listen_owner }}
+listen.group = {{ php_fpm_listen_group }}
+listen.mode = {{ php_fpm_listen_mode }}
 
 ; When POSIX Access Control Lists are supported you can set them using
 ; these options, value is a comma separated list of user/group names.
