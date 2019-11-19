@@ -1,65 +1,63 @@
 ---
-- name: PHP | Add php-7.0 PPA
-  apt_repository: repo='ppa:ondrej/php'
-                  state=present
-                  update_cache=yes
-  sudo: true
+- name: PHP | Add php-7.3 PPA
+  yum: name=epel-release state=present
+  become: yes
 
 - name: PHP | install php packages
-  apt: pkg={{ item }} state=installed
+  yum: name={{ item }} state=installed
   with_items:
-    - php7.0-fpm
-    - php7.0-cli
-    - php7.0-common
-    - php7.0-curl
-    - php7.0-json
-    - php7.0-gd
-    - php7.0-mcrypt
-    - php7.0-odbc
-    - php7.0-pgsql
-    - php7.0-mbstring
-    - php7.0-mysql
-    - php7.0-xmlrpc
-    - php7.0-opcache
-    - php7.0-intl
-    - php7.0-bz2
-    - php7.0-xml
-  sudo: true
+    - php7.3-fpm
+    - php7.3-cli
+    - php7.3-common
+    - php7.3-curl
+    - php7.3-json
+    - php7.3-gd
+    - php7.3-mcrypt
+    - php7.3-odbc
+    - php7.3-pgsql
+    - php7.3-mbstring
+    - php7.3-mysql
+    - php7.3-xmlrpc
+    - php7.3-opcache
+    - php7.3-intl
+    - php7.3-bz2
+    - php7.3-xml
+  become: yes
 
-- name: PHP | FPM php.ini
-  template:
-    src=php.ini.j2
-    dest=/etc/php/7.0/fpm/php.ini
-    backup=yes
-    owner=root
-    group=root
-    mode=0644
-  sudo: true
+# - name: PHP | FPM php.ini
+#   template:
+#     src=php.ini.j2
+#     dest=/etc/php/7.0/fpm/php.ini
+#     backup=yes
+#     owner=root
+#     group=root
+#     mode=0644
+#   become: yes
 
-- name: PHP | CLI php.ini
-  template:
-    src=php.ini.j2
-    dest=/etc/php/7.0/cli/php.ini
-    backup=yes
-    owner=root
-    group=root
-    mode=0644
-  sudo: true
+# - name: PHP | CLI php.ini
+#   template:
+#     src=php.ini.j2
+#     dest=/etc/php/7.0/cli/php.ini
+#     backup=yes
+#     owner=root
+#     group=root
+#     mode=0644
+#   become: yes
 
-- name: PHP | configure opcache
-  template:
-    src=opcache.ini.j2
-    dest=/etc/php/7.0/mods-available/opcache.ini
-    backup=yes
-    owner=root
-    group=root
-    mode=0644
-  sudo: true
+# - name: PHP | configure opcache
+#   template:
+#     src=opcache.ini.j2
+#     dest=/etc/php/7.0/mods-available/opcache.ini
+#     backup=yes
+#     owner=root
+#     group=root
+#     mode=0644
+#   become: yes
 
 - name: PHP | restart nginx
   raw: service nginx restart
-  sudo: true
+  become: yes
 
 - name: PHP | restart fpm
-  raw: service php7.0-fpm restart
-  sudo: true
+  raw: service php7.3-fpm restart
+  become: yes

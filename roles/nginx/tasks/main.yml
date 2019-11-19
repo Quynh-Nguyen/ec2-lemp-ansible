@@ -1,12 +1,6 @@
 ---
-- name: Add Nginx Repository
-  apt_repository: repo='ppa:nginx/stable' state=present
-  register: nginxppastable
-
 - name: Install Nginx
-  apt: name=nginx state=present update_cache=true
-  when: nginxppastable|success
-  register: nginxinstalled
+  yum: name=nginx state=present update_cache=true
   notify:
    - start nginx
 
