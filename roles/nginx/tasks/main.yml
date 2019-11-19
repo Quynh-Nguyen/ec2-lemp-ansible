@@ -21,7 +21,6 @@
 - name: NGINX | NGINX Check nginx root directory
   stat:
     path: /var/www/html
-  with_items: "{{ nginx_root }}"
   register: nginx_root_directory
 
 - name: NGINX | NGINX Show message if nginx root directory existed
