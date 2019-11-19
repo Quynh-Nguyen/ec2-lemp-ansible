@@ -34,7 +34,7 @@ php_date_timezone: UTC
 
 
 nginx_index: "index index.php index.html index.html"
-nginx_root: /var/www/html
+nginx_root: "/var/www/html"
 
 www_user: nginx
 www_group: nginx
