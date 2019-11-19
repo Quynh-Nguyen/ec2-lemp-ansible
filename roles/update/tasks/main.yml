@@ -5,6 +5,8 @@
 
 - name: yum | yum update
   yum:
+    name: "*"
+    state: present
     update_cache: yes
   sudo: true
 
