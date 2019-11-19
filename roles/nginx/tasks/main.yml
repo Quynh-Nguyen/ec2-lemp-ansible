@@ -18,6 +18,24 @@
     mode=0644
   become: yes
 
+- name: NGINX | NGINX Check nginx root directory
+  stat:
+    path: {{ nginx_root }}
+  register: nginx_root_directory
+
+- name: NGINX | NGINX Show message if nginx root directory existed
+  debug:
+    msg: 'Nginx root directory existed'
+  when: nginx_root_directory.stat.exists
+
+- name: NGINX | NGINX Create directory if not exists
+  file:
+    path: {{ nginx_root }}
+    state: directory
+    mode: 0755
+    group: {{ php_fpm_group }}
+    owner: {{ php_fpm_user }}
+
 - name: NGINX | restart nginx
   raw: service nginx restart
   become: yes
