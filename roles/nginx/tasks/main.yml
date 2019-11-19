@@ -36,7 +36,7 @@
     mode: 0755
     group: nginx
     owner: nginx
-    with_items: "{{ nginx_root }}"
+  with_items: "{{ nginx_root }}"
 
 - name: NGINX | restart nginx
   raw: service nginx restart
