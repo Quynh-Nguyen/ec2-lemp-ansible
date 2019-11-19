@@ -13,7 +13,7 @@
         'php73-curl',
         'php73-json',
         'php73-gd',
-        'php73-mcrypt',
+        # 'php73-mcrypt',
         'php73-odbc',
         'php73-pgsql',
         'php73-mbstring',
