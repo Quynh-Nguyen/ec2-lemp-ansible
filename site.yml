@@ -1,9 +1,9 @@
 ---
 - name: Provision LEMP and related tools
   hosts: web
-  gather_facts: true
+  gather_facts: True
   remote_user: ec2-user
-  become: true
+  become: yes
   become_user: root
   become_method: sudo
 
