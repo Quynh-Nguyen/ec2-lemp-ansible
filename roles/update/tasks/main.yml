@@ -1,6 +1,6 @@
 
 ---
-- name: install python2
+- name: install python
   raw: sudo yum -y install python
 
 - name: yum | yum update
@@ -12,17 +12,18 @@
 
 - name: yum | ensure core packages are installed
   yum:
-    name: "{{ item }}"
+    name:
+    [
+      'curl',
+      'git',
+      'make',
+      'supervisor',
+      'tree',
+      'unzip',
+      'telnet'
+    ]
     state: present
   become: yes
-  with_items:
-    - curl
-    - git
-    - make
-    - python-software-properties
-    - supervisor
-    - tree
-    - unzip
 
 - name: Upgrade Server
   yum:
