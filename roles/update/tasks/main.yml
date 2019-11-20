@@ -19,7 +19,9 @@
         'make',
         'tree',
         'unzip',
-        'telnet'
+        'telnet',
+        'libselinux-python',
+        'libsemanage-python',
       ]
     state: present
   become: yes
