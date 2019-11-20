@@ -40,7 +40,7 @@ php_fpm_user: nginx
 php_fpm_group: nginx
 php_fpm_listen_owner: nginx
 php_fpm_listen_group: nginx
-php_fpm_listen_mode: 0660
+php_fpm_listen_mode: '0660'
 
 # MySQL Settings
 mysql_port: 3306
