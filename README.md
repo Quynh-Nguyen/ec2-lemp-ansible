@@ -1,8 +1,8 @@
 
 ### ec2-lemp-ansible
-Installin LEMP Stack (Linux, NGINX, MySQL, &amp; PHP) using Ansible On linux Amazon EC2 AMI
+Install LEMP Stack (Linux, NGINX, MySQL, &amp; PHP) using Ansible On linux Amazon EC2 AMI
 
-<video style="width:70%" controls src="https://asciinema.org/a/uQqDsRUYnmzdrzLaH3OsQubPs"></video>
+[![asciicast](https://asciinema.org/a/uQqDsRUYnmzdrzLaH3OsQubPs.svg)](https://asciinema.org/a/uQqDsRUYnmzdrzLaH3OsQubPs)
 
 ### How to use ?
 ansible-playbook -i hosts site.yml --user=USER --extra-vars "ansible_sudo_pass=PASSWORD"
