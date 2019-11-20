@@ -50,4 +50,6 @@
 #   when: item.changed == True
 
 
-notify: restart php-fpm
+- name: INIT_APPS | restart nginx
+  raw: service nginx restart
+  become: yes
