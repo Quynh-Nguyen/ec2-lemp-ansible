@@ -1,12 +1,12 @@
 ---
 - name: MySQL | install mysql packages
-  apt: pkg={{ item }} state=installed
-  sudo: true
-  with_items:
-   - mysql-client
-   - mysql-common
-   - mysql-server
-   - python-mysqldb
+  yum:
+    name: [
+      'mysql-server',
+      'python-mysqldb',
+    ]
+    state: installed
+  become: yes
 
 - name: MySQL | create MySQL configuration file
   template:
@@ -16,24 +16,24 @@
     owner=root
     group=root
     mode=0644
-  sudo: true
+  become: yes
 
 - name: MySQL | restart mysql
   service: name=mysql state=restarted
-  sudo: true
+  become: yes
 
 # MySQL database setup, this does the equivalent of mysql_secure_installation.
 - name: MySQL | Set the root password.
   mysql_user: name=root password={{ mysql_root_password }} host=localhost
-  sudo: true
+  become: yes
 
 - name: MySQL | Config for easy access as root user
   template: src=mysql_root.my.cnf.j2 dest=/root/.my.cnf
-  sudo: true
+  become: yes
 
-- name: MySQL | Config for easy access as root user
-  template: src=mysql_root.my.cnf.j2 dest={{ home_dir }}/.my.cnf
-  when: "'{{ user }}' != 'root'"
+# - name: MySQL | Config for easy access as root user
+#   template: src=mysql_root.my.cnf.j2 dest={{ home_dir }}/.my.cnf
+#   when: "'{{ user }}' != 'root'"
 
 - name: MySQL | Delete anonymous MySQL server user for {{ server_hostname }}
   mysql_user: name="" host="{{ server_hostname }}" state="absent" login_user=root login_password={{ mysql_root_password }}
@@ -61,4 +61,4 @@
 
 - name: MySQL | restart mysql
   service: name=mysql state=restarted
-  sudo: true
+  become: yes

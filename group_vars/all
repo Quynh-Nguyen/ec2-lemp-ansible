@@ -13,15 +13,15 @@ auto_up_disable: false
 core_update_level: true
 
 home_dir: "/home/username"
-projects_root: /var/www
-web_root: /var/www/sites
-repos_root: /var/www/repos
+projects_root: /var/www/html
+web_root: /var/www/html
+repos_root: /var/www/html
 
-username: username
-groupname: username
+username: ec2-user
+groupname: ec2-user
 
 apps:
-  - www.site.com
+  - insutora.com
 
 php_memory_limit: 512M
 php_max_execution_time: 60
