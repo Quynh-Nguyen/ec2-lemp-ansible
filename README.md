@@ -1,8 +1,8 @@
 
-### lemp-ansible
+### ec2-lemp-ansible
 Installin LEMP Stack (Linux, NGINX, MySQL, &amp; PHP) using Ansible On linux Amazon EC2 AMI
 
-
+<video style="width:70%" controls src="https://asciinema.org/a/uQqDsRUYnmzdrzLaH3OsQubPs"></video>
 
 ### How to use ?
 ansible-playbook -i hosts site.yml --user=USER --extra-vars "ansible_sudo_pass=PASSWORD"
@@ -29,7 +29,7 @@ is complete, you can hit access server to begin the WordPress configuration.
 
 Here are some ideas for ways that these playbooks could be extended:
 
-- Parameterize the WordPress deployment to handle multi-site configurations.
+- Parameterize to handle multi-site configurations.
 - Separate the components (PHP-FPM, MySQL, Nginx) onto separate hosts and
 handle the configuration appropriately.
 - Handle WordPress upgrades automatically.
