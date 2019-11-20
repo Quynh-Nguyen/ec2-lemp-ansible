@@ -8,6 +8,19 @@
 - name: Create the repos root directory.
   file: group={{ groupname }} owner={{ username }} mode=755 state=directory path={{ repos_root }}
 
+- name: Create Nginx config apps directory.
+  file:
+    state: directory
+    path: /etc/nginx/sites-available/
+  become: yes
+
+- name: Create Nginx config apps directory.
+  file:
+    state: directory
+    path: /etc/nginx/sites-enabled/
+  become: yes
+
+
 # - name: Create web apps directories (repos)
 #   file: group={{ groupname }} owner={{ username }} mode=755 state=directory path={{ repos_root }}/{{ item }}.git
 #   with_items: "{{ apps }}"
