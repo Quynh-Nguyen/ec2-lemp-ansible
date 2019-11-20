@@ -3,7 +3,6 @@
   yum:
     name: [
       'mysql-server',
-      'python-mysqldb',
     ]
     state: installed
   become: yes
