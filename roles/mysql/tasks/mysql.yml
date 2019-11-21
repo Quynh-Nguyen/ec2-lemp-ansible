@@ -26,10 +26,11 @@
 - name: MySQL | Set the root password.
   mysql_user: name=root password={{ mysql_root_password }} host=localhost
   become: yes
+  ignore_errors: true
 
-- name: MySQL | Config for easy access as root user
-  template: src=mysql_root.my.cnf.j2 dest=/root/.my.cnf
-  become: yes
+# - name: MySQL | Config for easy access as root user
+#   template: src=mysql_root.my.cnf.j2 dest=/root/.my.cnf
+#   become: yes
 
 # - name: MySQL | Config for easy access as root user
 #   template: src=mysql_root.my.cnf.j2 dest={{ home_dir }}/.my.cnf
