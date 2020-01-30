@@ -7,22 +7,22 @@
   yum:
     name:
       [
-        'php73-fpm',
-        'php73-cli',
-        'php73-common',
-        'php73-curl',
-        'php73-json',
-        'php73-gd',
+        'php-fpm',
+        'php-cli',
+        'php-common',
+        'php-curl',
+        'php-json',
+        'php-gd',
         # 'php73-mcrypt',
-        'php73-odbc',
-        'php73-pgsql',
-        'php73-mbstring',
-        'php73-mysqlnd',
-        'php73-xmlrpc',
-        'php73-opcache',
-        'php73-intl',
-        'php73-bz2',
-        'php73-xml'
+        'php-odbc',
+        'php-pgsql',
+        'php-mbstring',
+        'php-mysqlnd',
+        'php-xmlrpc',
+        'php-opcache',
+        'php-intl',
+        'php-bz2',
+        'php-xml'
       ]
     state: installed
   become: yes
@@ -30,7 +30,7 @@
 - name: PHP | FPM www.conf
   template:
     src=www.conf.j2
-    dest=/etc/php-fpm-7.3.d/www.conf
+    dest=/etc/php-fpm.d/www.conf
     backup=yes
     owner=root
     group=root
@@ -40,7 +40,7 @@
 - name: PHP | CLI php.ini
   template:
     src=php.ini.j2
-    dest=/etc/php-7.3.ini
+    dest=/etc/php.ini
     backup=yes
     owner=root
     group=root
@@ -50,7 +50,7 @@
 - name: PHP | UPSTREAM php-fpm.conf
   template:
     src=php-fpm.conf.j2
-    dest=/etc/nginx/conf.d/php-fpm.conf-7.3
+    dest=/etc/nginx/conf.d/php-fpm.conf
     backup=yes
     owner=root
     group=root

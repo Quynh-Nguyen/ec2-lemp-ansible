@@ -12,6 +12,6 @@
      - common
      - nginx
      - php
-     - mysql
+#     - mysql
      - initapps
      - restartsvcs

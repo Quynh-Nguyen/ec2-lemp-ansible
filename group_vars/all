@@ -21,8 +21,7 @@ username: ec2-user
 groupname: ec2-user
 
 apps:
-  - api.insutora.com
-  - insutora.com
+  - DOMAIN.com
 
 php_memory_limit: 512M
 php_max_execution_time: 60
